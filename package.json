@@ -1,0 +1,39 @@
+{
+  "name": "starter-craft-js",
+  "description": "Website",
+  "version": "0.1.0",
+  "author": "",
+  "contributors": [
+    "James La Marre"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslamarre/[REPO HERE]"
+  },
+  "app": {
+    "env": "local",
+    "stylusDir": "src/styles"
+  },
+  "engines": {
+    "node": "12.18.3",
+    "npm": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "1.0.0",
+    "eslint": "7.7.0",
+    "stylus": "0.54.8",
+    "webpack": "4.44.1",
+    "webpack-cli": "3.3.12",
+    "webpack-livereload-plugin": "2.3.0"
+  },
+  "scripts": {
+    "dev": "npm run watch:js & npm run watch:stylus",
+    "watch:js": "ENV_PROD=0 webpack --progress --colors --watch --cache",
+    "watch:stylus": "$(npm bin)/stylus -m -w ./src/styles/app.styl -o ./web/css/app.css --include-css",
+    "build": "npm run lint & npm run dist:critical & npm run dist:stylus & npm run dist:js",
+    "dist:js": "ENV_PROD=1 webpack",
+    "dist:critical": "$(npm bin)/stylus -u autoprefixer-stylus ./src/styles/critical.styl -o ./web/css/critical.min.css --include-css -c",
+    "dist:stylus": "$(npm bin)/stylus -u autoprefixer-stylus ./src/styles/app.styl -o ./web/css/app.min.css --include-css -c",
+    "lint": "eslint ./src/scripts/**/*.js; exit 0"
+  }
+}

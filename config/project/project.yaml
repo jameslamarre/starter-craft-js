@@ -1,0 +1,17 @@
+dateModified: 1598717756
+email:
+  fromEmail: jameslamarre@gmail.com
+  fromName: 'For the Birds'
+  transportType: craft\mail\transportadapters\Sendmail
+system:
+  edition: solo
+  live: true
+  name: 'For the Birds'
+  schemaVersion: 3.5.13
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
